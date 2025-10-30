@@ -1,0 +1,27 @@
+path: ./dataset/data_txt/Fall
+
+train: images
+val: images
+
+nc: 2
+names: ["fall", "not_fall"]
+
+kpt_shape: [14, 3]
+
+kpt_labels:
+  [
+    "nose",
+    "center",
+    "left_shoulder",
+    "right_shoulder",
+    "left_elbow",
+    "right_elbow",
+    "left_wrist",
+    "right_wrist",
+    "left_hip",
+    "right_hip",
+    "left_knee",
+    "right_knee",
+    "left_ankle",
+    "right_ankle",
+  ]
