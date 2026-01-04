@@ -7,6 +7,10 @@ from Model import STGCNThreeStream
 from collections import deque
 import traceback
 
+# =====================================================
+# App & Device
+# =====================================================
+
 app = Flask(__name__)
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -14,22 +18,25 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # Config (TỐI ƯU ĐỘ TRỄ)
 # =====================================================
 
-SEQ_LEN = 32                # ⬅️ GIẢM TỪ 32 → 16
+SEQ_LEN = 32
 NUM_CLASS = 2
 LABELS = ["non-fall", "fall"]
 
 CONF_THRESHOLD = 0.2
-SMOOTH_WINDOW = 3            # ⬅️ GIẢM TỪ 5 → 3
 FALL_PROB_THRESHOLD = 0.85   # nhạy hơn
 FALL_DEBOUNCE = 1            # ⬅️ PHÁT HIỆN SỚM
 
 # =====================================================
 # Graph structure (MUST match preprocess.py)
 # =====================================================
-
 EDGES = [
-    (0,1),(1,2),(1,3),(2,4),(4,6),(3,5),(5,7),
-    (2,8),(3,9),(8,9),(8,10),(10,12),(9,11),(11,13)
+    (0,1),(1,0),
+    (1,2),(1,3),(2,1),(3,1),
+    (2,4),(4,2),(4,6),(6,4),
+    (3,5),(5,7),(5,3),(7,5),
+    (2,8),(8,2),(3,9),(9,3),(8,9),(9,8),
+    (8,10),(10,8),(10,12),(12,10),
+    (9,11),(11,9),(11,13),(13,11),
 ]
 
 # =====================================================
@@ -49,44 +56,64 @@ except Exception:
     traceback.print_exc()
 
 # =====================================================
-# Runtime buffers
-# =====================================================
-
-PRED_QUEUE = deque(maxlen=SMOOTH_WINDOW)
-
-# =====================================================
 # Helper functions
 # =====================================================
 
-def pad_or_crop(seq, target_len=SEQ_LEN):
+def pad_or_crop(seq, target_len=SEQ_LEN, center_crop=True):
     T = seq.shape[0]
+    if T == target_len:
+        return seq
     if T < target_len:
         return np.pad(seq, ((0, target_len - T), (0, 0), (0, 0)), mode="edge")
-    return seq[:target_len]
+    if center_crop:
+        start = (T - target_len) // 2
+    else:
+        start = 0
+    return seq[start:start + target_len]
 
 def sanitize_joint(joint):
     joint = np.nan_to_num(joint, nan=0.0, posinf=0.0, neginf=0.0)
+    
+    # XY coordinates
     joint[..., :2] = np.clip(joint[..., :2], 0.0, 1.0)
-    joint[..., 2:3] = np.clip(joint[..., 2:3], 0.0, 1.0)
+    
+    # Confidence
+    conf = joint[..., 2:3]
+    if conf.max() > 1.5:
+        conf = conf / conf.max()
+    conf = np.clip(conf, 0.0, 1.0)
+    joint[..., 2:3] = conf
+    
     return joint
 
 def compute_bone(seq_xy, conf):
+    """
+    seq_xy: (T,V,2), conf: (T,V,1)
+    """
     bone = np.zeros_like(seq_xy)
+    T, V, _ = seq_xy.shape
     for u, v in EDGES:
-        valid = (conf[:, u, 0] > 0) & (conf[:, v, 0] > 0)
-        bone[valid, v] = seq_xy[valid, v] - seq_xy[valid, u]
+        valid = (conf[:, u, 0] > 0) & (conf[:, v, 0] > 0)  # shape (T,)
+        if valid.any():
+            bone[valid, v, :] = seq_xy[valid, v, :] - seq_xy[valid, u, :]
     return bone
 
 def compute_motion(seq_xy, conf):
+    """
+    seq_xy: (T,V,2), conf: (T,V,1)
+    """
     motion = np.zeros_like(seq_xy)
-    valid = conf[:, :, 0] > 0
-    valid_pair = valid[1:] & valid[:-1]
-    motion[1:][valid_pair] = seq_xy[1:][valid_pair] - seq_xy[:-1][valid_pair]
+    T, V, _ = seq_xy.shape
+    valid = conf[:, :, 0] > 0  # shape (T,V)
+    for t in range(1, T):
+        valid_pair = valid[t] & valid[t-1]  # shape (V,)
+        if valid_pair.any():
+            motion[t, valid_pair, :] = seq_xy[t, valid_pair, :] - seq_xy[t-1, valid_pair, :]
     return motion
 
 def to_tensor(arr):
-    # (T,V,C) → (1,C,T,V)
-    return torch.from_numpy(arr).permute(2, 0, 1).unsqueeze(0)
+    # (T,V,3) -> (1,3,T,V)
+    return torch.from_numpy(arr).permute(2,0,1).unsqueeze(0).float()
 
 # =====================================================
 # API
@@ -151,11 +178,8 @@ def predict():
         # ----------------------------
         # Temporal smoothing (NHẸ)
         # ----------------------------
-        PRED_QUEUE.append(probs)
-        avg_prob = np.mean(PRED_QUEUE, axis=0)
-
-        pred_idx  = int(np.argmax(avg_prob))
-        pred_conf = float(avg_prob[pred_idx])
+        pred_idx  = int(np.argmax(probs))
+        pred_conf = float(probs[pred_idx])
 
         # ----------------------------
         # Fall detection (ƯU TIÊN NHANH)
@@ -170,7 +194,7 @@ def predict():
             "confidence": pred_conf,
             "fall_triggered": fall_triggered,
             "mean_conf": mean_conf,
-            "probs": avg_prob.tolist()
+            "probs": probs.tolist()
         })
 
     except Exception as e:
