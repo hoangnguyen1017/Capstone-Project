@@ -1,0 +1,4 @@
+flask==2.2.5
+torch==2.2.0+cpu
+numpy
+--find-links https://download.pytorch.org/whl/cpu/torch_stable.html
