@@ -4,6 +4,7 @@ export interface ISupervisor extends Document {
   name: string;
   email: string;
   phone?: string;
+
   camera_ids: mongoose.Types.ObjectId[];
 }
 

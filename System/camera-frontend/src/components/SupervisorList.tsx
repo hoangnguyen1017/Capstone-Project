@@ -17,7 +17,7 @@ interface Supervisor {
 
 
 interface SupervisorListProps {
-  onChange: () => void;
+  onChange: () => void; 
 }
 
 const SupervisorList: React.FC<SupervisorListProps> = ({ onChange }) => {

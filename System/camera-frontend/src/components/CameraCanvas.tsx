@@ -18,13 +18,13 @@ interface CameraCanvasProps {
   onRendered?: (canvas: HTMLCanvasElement) => void;
 }
 
+
 const SKELETON_EDGES: [number, number][] = [
   [0, 1], [1, 2], [1, 3], [2, 4], [4, 6], [3, 5], [5, 7],
   [2, 8], [3, 9], [8, 9], [8, 10], [10, 12], [9, 11], [11, 13],
 ];
 
 const SMOOTH_ALPHA = 0.35;
-
 const CameraCanvas: React.FC<CameraCanvasProps> = ({
   frame,
   detections,
@@ -132,7 +132,6 @@ const CameraCanvas: React.FC<CameraCanvasProps> = ({
     ctx.fillStyle = "#ff4444";
     ctx.font = "12px monospace";
     ctx.fillText(`FPS: ${fps.toFixed(1)}`, 10, 18);
-
     onRendered?.(canvas);
 
     rafRef.current = requestAnimationFrame(render);
@@ -155,7 +154,6 @@ const CameraCanvas: React.FC<CameraCanvasProps> = ({
       }
     };
   }, [frame, render]);
-
   return (
     <div className="relative flex-1 bg-black rounded overflow-hidden">
       <canvas ref={canvasRef} className="w-full h-full" />

@@ -25,6 +25,7 @@ const Navbar: React.FC<NavbarProps> = ({
     audioRef.current = new Audio(alertSound);
     audioRef.current.loop = false;
     audioRef.current.load();
+
     const unlockAudio = () => {
       audioRef.current?.play().then(() => audioRef.current?.pause());
       window.removeEventListener("click", unlockAudio);
@@ -32,7 +33,6 @@ const Navbar: React.FC<NavbarProps> = ({
     window.addEventListener("click", unlockAudio);
     const cameraPorts = [8001, 8002];
     const wsList: WebSocket[] = [];
-
     const handleWsMessage = (ev: MessageEvent) => {
       try {
         const data = JSON.parse(ev.data);
@@ -63,6 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({
       ws.onerror = (e) => console.warn(`WS error port ${port}:`, e);
       ws.onclose = () => console.log(`WS closed port ${port}`);
     });
+
     return () => {
       wsList.forEach((ws) => ws.close());
       audioRef.current?.pause();

@@ -19,7 +19,6 @@ const CameraForm: React.FC<CameraFormProps> = ({ onAdd }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [availableCams, setAvailableCams] = useState<DetectedCamera[]>([]);
   const [selectedCam, setSelectedCam] = useState<DetectedCamera | null>(null);
-
   useEffect(() => {
     const detectCams = async () => {
       const cams: DetectedCamera[] = [];

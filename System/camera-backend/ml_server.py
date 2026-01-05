@@ -1,3 +1,4 @@
+# ml_server.py
 import asyncio
 import cv2
 import json
@@ -14,7 +15,7 @@ import signal
 
 MODEL_SERVER_URL = "http://localhost:6000/predict"
 CAM_FPS = 60
-YOLO_MODEL_PATH = r"D:\nopbai\System\best912.pt"
+YOLO_MODEL_PATH = r"C:\Users\ADMIN\Downloads\Do_an\web_final_bv\web_final\best912.pt"
 WS_BIND = "127.0.0.1"
 
 FALL_CONFIRM_HOLD = 5.0
@@ -26,8 +27,10 @@ MIN_VALID_KP = 12
 QUEUE_FILE = "fall_event_queue.jsonl"
 FRAME_SAVE_DIR = "fall_frames"
 os.makedirs(FRAME_SAVE_DIR, exist_ok=True)
-
-connected_clients = dict() 
+CONF_LOG_DIR = r"C:\Users\ADMIN\Downloads\Do_an\conf"
+os.makedirs(CONF_LOG_DIR, exist_ok=True)
+MAX_CONF_ROWS = 1000
+connected_clients = dict()  
 latest_results_by_track = defaultdict(lambda: {"label": "unknown", "confidence": 0.0, "ts": 0.0})
 state_by_track = defaultdict(lambda: {
     "state": "normal",   
@@ -45,19 +48,49 @@ async def fetch_camera_metadata():
                 mapping = {}
                 for cam in cams:
                     stream = cam.get("video_stream_url")
-                    port = int(stream.split(":")[-1]) 
+                    port = int(stream.split(":")[-1])  
                     mapping[port] = cam
                 return mapping
         except Exception as e:
             print("❌ Failed to fetch camera metadata:", e)
             return {}
+def log_stgcn_confidence(track_id, label, confidence, ts=None):
+    fname = f"track_{track_id}_{label}.csv"
+    fpath = os.path.join(CONF_LOG_DIR, fname)
 
+    try:
+        if not os.path.exists(fpath):
+            next_idx = 1
+            write_header = True
+        else:
+            write_header = False
+            with open(fpath, "r", encoding="utf-8") as f:
+                line_count = sum(1 for _ in f)
+            next_idx = max(1, line_count)
+
+        with open(fpath, "a", encoding="utf-8") as f:
+            if write_header:
+                f.write("index,track_id,label,confidence\n")
+            f.write(f"{next_idx},{track_id},{label},{confidence:.5f}\n")
+
+        with open(fpath, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+
+        if len(lines) > MAX_CONF_ROWS + 1:
+            header = lines[0]
+            tail = lines[-MAX_CONF_ROWS:]
+            with open(fpath, "w", encoding="utf-8") as f:
+                f.write(header)
+                f.writelines(tail)
+
+    except Exception as e:
+        print("❌ CONF LOG ERROR:", e)
 
 def update_fall_state(track_id, st_label, st_conf, now_ts):
     s = state_by_track[track_id]
     state = s["state"]
 
-    if st_label.lower() == "fall" and st_conf >= 0.6:
+    if st_label.lower() == "fall" and st_conf >= 0.8:
         if state != "fall_confirmed":
             s["state"] = "fall_confirmed"
             s["fall_ts"] = now_ts
@@ -90,7 +123,6 @@ def update_fall_state(track_id, st_label, st_conf, now_ts):
     s["last_not_fall_ts"] = 0.0
     s["alert_logged"] = False
     return "normal"
-
 class TrackerManager:
     def __init__(self, min_frames=15, max_lost=20):
         self.min_frames = min_frames
@@ -215,6 +247,7 @@ async def stgcn_broadcast_loop(
                 window_end_ts = window[-1]["ts"]
                 if window_end_ts - last_sent_ts.get(tid, 0) < SEND_COOLDOWN:
                     continue
+
                 qualities = [x.get("quality", 0.0) for x in window]
                 avg_quality = float(np.mean(qualities))
                 bad_frames = sum(q < 0.5 for q in qualities)
@@ -260,7 +293,7 @@ async def stgcn_broadcast_loop(
                     kp_array = np.stack(
                         [np.array(x["kps"], dtype=np.float32) for x in window],
                         axis=0
-                    )  
+                    ) 
 
                     kp_array = np.nan_to_num(kp_array, nan=0.0)
                     kp_array[:, :, 2] = np.clip(kp_array[:, :, 2], 0.0, 1.0)
@@ -270,6 +303,7 @@ async def stgcn_broadcast_loop(
                     print(f"[ST-GCN] kp stack error (tid={tid}): {e}")
                     last_sent_ts[tid] = window_end_ts
                     continue
+
                 try:
                     async with session.post(
                         MODEL_SERVER_URL,
@@ -288,6 +322,13 @@ async def stgcn_broadcast_loop(
                 pred_label = str(result.get("prediction", "unknown"))
                 try:
                     pred_conf = float(result.get("confidence", 0.0))
+                    if pred_label in ("fall", "non-fall"):
+                        log_stgcn_confidence(
+                            track_id=tid,
+                            label=pred_label,
+                            confidence=pred_conf,
+                            ts=window_end_ts
+                        )
                 except:
                     pred_conf = 0.0
                 final_state = update_fall_state(tid, pred_label, pred_conf, window_end_ts)
@@ -344,7 +385,7 @@ async def stgcn_broadcast_loop(
 
                 if final_state == "fall_confirmed":
                     pred_label = "fall"
-                    pred_conf = max(pred_conf, 0.9)
+                    
 
                 latest_results_by_track[tid] = {
                     "label": pred_label,
@@ -416,7 +457,8 @@ class CameraPipeline:
         inside_y = (kp_xy[:, 1] >= y1) & (kp_xy[:, 1] <= y2)
         return inside_x & inside_y
 
-    def smooth_bbox(self, track_id, bbox, alpha=0.2):
+
+    def smooth_bbox(self, track_id, bbox, alpha=0.25):
         if track_id not in self.prev_boxes:
             self.prev_boxes[track_id] = bbox
             return bbox
@@ -442,7 +484,7 @@ class CameraPipeline:
             if kp_conf[i] >= conf_th and not np.all(prev[i] == 0):
                 sm[i] = prev[i] * (1 - self.SMOOTH_ALPHA) + kps[i] * self.SMOOTH_ALPHA
             else:
-                sm[i] = kps[i]   
+                sm[i] = kps[i] 
 
         self.prev_keypoints[track_id] = sm
         return sm
@@ -494,7 +536,6 @@ class CameraPipeline:
             H, W = frame.shape[:2]
             self.H = H
             self.W = W
-
             ok, buf = cv2.imencode(".jpg", frame, [int(cv2.IMWRITE_JPEG_QUALITY), 60])
             if not ok:
                 await asyncio.sleep(0.001)
@@ -521,6 +562,7 @@ class CameraPipeline:
 
                     raw_id = int(box.id[0].item())
                     x1, y1, x2, y2 = map(int, box.xyxy[0].tolist())
+
                     final_id = merge_tracks(raw_id, [x1, y1, x2, y2], self.prev_boxes, self.tracker.final_tracks)
                     if final_id is None:
                         final_id = self.tracker.update(raw_id)
@@ -538,24 +580,21 @@ class CameraPipeline:
                         kp_conf = r.keypoints.conf[idx].cpu().numpy()
                         kp_xy = kp_xy / np.array([W, H])
                         kp_xy = np.clip(kp_xy, 0.0, 1.0)
-
                         conf_mask = kp_conf >= KP_CONF_TH
                         bbox_mask = self.kp_inside_bbox(kp_xy, sm_box)
                         valid_mask = conf_mask & bbox_mask
-
                         num_valid = int(valid_mask.sum())
                         pose_quality = num_valid / 14.0
-
                         kp_xy_masked = kp_xy.copy()
                         kp_conf_masked = kp_conf.copy()
                         kp_xy_masked[~valid_mask] = 0.0
                         kp_conf_masked[~valid_mask] = 0.0
-
                         kp_xy_sm = self.smooth_keypoints(
                             track_id,
                             kp_xy_masked,
                             kp_conf_masked
                         )
+
                         kp_out = np.zeros((14, 3), dtype=np.float32)
                         kp_out[valid_mask, 0:2] = kp_xy_sm[valid_mask]
                         kp_out[valid_mask, 2] = kp_conf_masked[valid_mask]
@@ -565,9 +604,9 @@ class CameraPipeline:
 
                     lr = latest_results_by_track.get(track_id, {"label": "unknown", "confidence": 0.0, "ts": 0.0})
                     label, conf = lr["label"], lr["confidence"]
-                    if now - lr["ts"] > 5.0:
+                    if now - lr["ts"] > 2.0:
                         label, conf = "unknown", 0.0
-                        
+                
                     try:
                         self.recent_frames_by_track[track_id].append(jpg_bytes)
                     except Exception:
@@ -582,14 +621,12 @@ class CameraPipeline:
                             "kps": kp_out.tolist(),
                             "quality": pose_quality
                         })
-
             lost_ids = self.tracker.mark_lost(seen_ids)
             for tid in lost_ids:
                 self.prev_keypoints.pop(tid, None)
                 self.prev_boxes.pop(tid, None)
                 self.pose_windows_by_track.pop(tid, None)
                 self.recent_frames_by_track.pop(tid, None)
-
             hide_bbox = all(len(w) < 32 for w in self.pose_windows_by_track.values())
             send_dets = dets.copy()
             if hide_bbox:
@@ -610,7 +647,6 @@ class CameraPipeline:
                     except asyncio.QueueEmpty:
                         pass
                 await self.send_queue.put(json.dumps(payload))
-
     async def websocket_send_loop(self):
         while True:
             payload = await self.send_queue.get()
@@ -652,7 +688,6 @@ class CameraPipeline:
         print(f"🌐 WEBSOCKET CAM[{self.cam_index}] at port {self.ws_port}")
         await server.wait_closed()
 
-
 def scan_cameras(max_test=5):
     cams = []
     for i in range(max_test):
@@ -692,7 +727,7 @@ async def main():
                     pipeline.pose_windows_by_track,
                     pipeline.pose_lock,
                     pipeline.last_sent_ts,
-                    port, 
+                    port,  
                     pipeline.recent_frames_by_track,
                     pipeline.camera_name,
                     pipeline.location,

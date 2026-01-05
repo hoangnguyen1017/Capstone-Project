@@ -3,12 +3,13 @@ import Camera from "../models/Camera";
 import Supervisor from "../models/Supervisor";
 
 const router = express.Router();
+
 router.post("/", async (req, res) => {
   try {
     const { video_stream_url, camera_name, location } = req.body;
 
     if (!camera_name) {
-      return res.status(400).json({ message: "Missing camera name" });
+      return res.status(400).json({ message: "Camera name is required" });
     }
 
     const newCamera = new Camera({ camera_name, video_stream_url, location });
@@ -27,18 +28,19 @@ router.get("/", async (req, res) => {
     res.json(cameras);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error retrieving camera list" });
+    res.status(500).json({ message: "Error fetching camera list" });
   }
 });
 
 router.delete("/:id", async (req, res) => {
   try {
     const cameraId = req.params.id;
+
     await Supervisor.deleteMany({ camera_id: cameraId });
     const deletedCamera = await Camera.findByIdAndDelete(cameraId);
 
     if (!deletedCamera) {
-      return res.status(404).json({ message: "Camera does not exist" });
+      return res.status(404).json({ message: "Camera not found" });
     }
 
     res.json({ message: "Camera deleted successfully", cameraId });
@@ -52,20 +54,27 @@ router.put("/:id", async (req, res) => {
   try {
     const cameraId = req.params.id;
     console.log("Body received:", req.body);
+
     const updatedCamera = await Camera.findByIdAndUpdate(
       cameraId,
-      { $set: req.body }, 
-      { new: true, runValidators: true } 
+      { $set: req.body },
+      { new: true, runValidators: true }
     );
 
     if (!updatedCamera) {
-      return res.status(404).json({ message: "Camera does not exist" });
+      return res.status(404).json({ message: "Camera not found" });
     }
 
-    res.json({ message: "Camera updated successfully", camera: updatedCamera });
+    res.json({
+      message: "Camera updated successfully",
+      camera: updatedCamera,
+    });
   } catch (error: any) {
     console.error("Error updating camera:", error.message, error);
-    res.status(500).json({ message: "Failed to update camera", error: error.message });
+    res.status(500).json({
+      message: "Failed to update camera",
+      error: error.message,
+    });
   }
 });
 

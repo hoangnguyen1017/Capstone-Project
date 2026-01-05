@@ -16,7 +16,7 @@ interface CameraDetectorProps {
   cameraId?: string;
   camIndex?: number;
   autoStart?: boolean;
-  onFrame?: (frame: string) => void; 
+  onFrame?: (frame: string) => void;
 }
 
 const CameraDetector: React.FC<CameraDetectorProps> = ({

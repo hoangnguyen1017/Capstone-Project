@@ -22,7 +22,6 @@ interface ICamera {
   is_active: boolean;
   video_stream_url?: string;
   responsible_id?: string; 
-}
 
 interface ISupervisor {
   _id: string;
@@ -200,6 +199,7 @@ const CameraDetailModal: React.FC<CameraDetailModalProps> = ({
 
       {/* Content */}
       <div className="flex flex-col w-full h-screen bg-transparent gap-6 overflow-y-auto">
+        {/* Video */}
         {/* Video (Canvas instead of CameraDetector) */}
         <div className="flex-1 rounded-2xl flex items-center justify-center overflow-hidden shadow-lg relative w-full h-full bg-black">
           {frame ? (
@@ -213,7 +213,7 @@ const CameraDetailModal: React.FC<CameraDetailModalProps> = ({
                 hover:scale-125
               "
               style={{
-                imageRendering: "auto", 
+                imageRendering: "auto",   
               }}
             />
           ) : (
@@ -338,7 +338,6 @@ const CameraDetailModal: React.FC<CameraDetailModalProps> = ({
                 label="Phone"
                 value={formData.responsible_phone || "N/A"}
               />
-              {/* <DetailRow icon={<Hash />} label="ID" value={camera._id} /> */}
             </div>
           )}
         </div>

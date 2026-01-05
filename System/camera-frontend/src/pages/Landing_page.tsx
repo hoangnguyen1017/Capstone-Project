@@ -27,8 +27,12 @@ function LandingPage() {
   return (
     <>
       {/* <Header /> */}
+
       <main className="bg-slate-950 text-white">
+        {/* Hero có background RIÊNG */}
         <HeroSection />
+
+        {/* Các section phía dưới dùng background CHUNG */}
         <div
           className="relative bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${BackgroundImg})` }}>

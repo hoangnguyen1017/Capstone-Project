@@ -27,6 +27,7 @@ const Dashboard: React.FC = () => {
   const [showSupervisorList, setShowSupervisorList] = useState(false);
 
   const BASE_URL = "http://localhost:5000";
+
   const fetchCameras = async (): Promise<ICamera[]> => {
     try {
       const res = await axios.get<ICamera[]>(`${BASE_URL}/api/cameras`);
@@ -41,10 +42,12 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     fetchCameras();
   }, []);
+
   const handleAddCamera = (camera: ICamera) => {
     setCameras([camera, ...cameras]);
     setShowCameraModal(false);
   };
+
   const handleSupervisorChange = async () => {
     const updatedCameras = await fetchCameras();
     if (activeCameraId) {
@@ -110,6 +113,7 @@ const Dashboard: React.FC = () => {
 
       {/* Main content */}
       <main className="relative z-10 flex-1 px-3 sm:px-6 lg:px-12 py-4 lg:py-6">
+        {/* Grid 2 cột */}
         <section className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1.1fr)] gap-4 lg:gap-6 min-h-[78vh] lg:min-h-[82vh]">
           {/* Left column: Camera Details */}
           <div className="relative rounded-2xl bg-white/5 border border-white/10 shadow-xl shadow-black/40 backdrop-blur-md overflow-hidden">
