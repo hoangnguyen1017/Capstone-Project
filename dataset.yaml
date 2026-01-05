@@ -1,13 +1,13 @@
-path: ./dataset/data_txt/Fall
+path: ./dataset/data_txt/Fall_split
 
-train: images
-val: images
+train: images/train
+val: images/val
+test: images/test
 
 nc: 2
 names: ["fall", "not_fall"]
 
 kpt_shape: [14, 3]
-
 kpt_labels:
   [
     "nose",
