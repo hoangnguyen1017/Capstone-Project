@@ -1,0 +1,15 @@
+{"time":"2025-12-19T15:57:36.3367423+07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\giang\\Desktop\\Transformer\\wandb\\run-20251219_155736-rgw25rbl\\logs\\debug-core.log"}
+{"time":"2025-12-19T15:57:37.1536704+07:00","level":"INFO","msg":"stream: created new stream","id":"rgw25rbl"}
+{"time":"2025-12-19T15:57:37.1536704+07:00","level":"INFO","msg":"stream: started","id":"rgw25rbl"}
+{"time":"2025-12-19T15:57:37.1542052+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"rgw25rbl"}
+{"time":"2025-12-19T15:57:37.1542052+07:00","level":"INFO","msg":"sender: started","stream_id":"rgw25rbl"}
+{"time":"2025-12-19T15:57:37.1542052+07:00","level":"INFO","msg":"handler: started","stream_id":"rgw25rbl"}
+{"time":"2025-12-19T15:57:37.6670763+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-12-19T15:57:44.5176787+07:00","level":"INFO","msg":"stream: closing","id":"rgw25rbl"}
+{"time":"2025-12-19T15:57:44.5176787+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-12-19T15:57:44.5181854+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-12-19T15:57:45.9799404+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-19T15:57:46.5951544+07:00","level":"INFO","msg":"handler: closed","stream_id":"rgw25rbl"}
+{"time":"2025-12-19T15:57:46.5951544+07:00","level":"INFO","msg":"sender: closed","stream_id":"rgw25rbl"}
+{"time":"2025-12-19T15:57:46.5951544+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"rgw25rbl"}
+{"time":"2025-12-19T15:57:46.5951544+07:00","level":"INFO","msg":"stream: closed","id":"rgw25rbl"}

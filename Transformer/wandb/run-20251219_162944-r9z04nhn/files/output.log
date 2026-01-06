@@ -1,0 +1,27 @@
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Fall\labels...
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Non_Fall\labels...
+✅ Loaded 1878 samples | Fall=718 | NonFall=1160
+📊 Dataset split | Train=1314 | Val=375 | Test=189
+🎯 Class distribution: Counter({0: 1160, 1: 718})
+🎯 CE class weights: [0.38232162594795227, 0.6176784038543701]
+Epoch [01/30] | Train Loss: 0.7001 | Val F1: 0.0000
+Epoch [02/30] | Train Loss: 0.5933 | Val F1: 0.8255
+Epoch [03/30] | Train Loss: 0.5160 | Val F1: 0.8429
+Epoch [04/30] | Train Loss: 0.4001 | Val F1: 0.8453
+Epoch [05/30] | Train Loss: 0.4234 | Val F1: 0.8551
+Epoch [06/30] | Train Loss: 0.3788 | Val F1: 0.8602
+Epoch [07/30] | Train Loss: 0.3882 | Val F1: 0.8235
+Epoch [08/30] | Train Loss: 0.4377 | Val F1: 0.7920
+Epoch [09/30] | Train Loss: 0.3785 | Val F1: 0.8602
+Epoch [10/30] | Train Loss: 0.3715 | Val F1: 0.8496
+Epoch [11/30] | Train Loss: 0.3679 | Val F1: 0.8643
+Epoch [12/30] | Train Loss: 0.3584 | Val F1: 0.8622
+Epoch [13/30] | Train Loss: 0.3566 | Val F1: 0.8768
+Epoch [14/30] | Train Loss: 0.3557 | Val F1: 0.8674
+Epoch [15/30] | Train Loss: 0.3558 | Val F1: 0.8519
+Epoch [16/30] | Train Loss: 0.3482 | Val F1: 0.8693
+Epoch [17/30] | Train Loss: 0.3359 | Val F1: 0.8581
+Epoch [18/30] | Train Loss: 0.3413 | Val F1: 0.8732
+🛑 Early stopping (Val F1 plateau)
+
+🧪 TEST evaluation

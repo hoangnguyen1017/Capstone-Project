@@ -1,0 +1,31 @@
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Fall\labels...
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Non_Fall\labels...
+✅ Loaded 1878 samples | Fall=718 | NonFall=1160
+📊 Dataset split | Train=1314 | Val=375 | Test=189
+🎯 Class distribution: Counter({0: 1160, 1: 718})
+🎯 CE class weights: [0.38232162594795227, 0.6176784038543701]
+C:\Users\giang\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\modules\transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+Traceback (most recent call last):
+  File "c:\Users\giang\Desktop\Transformer\training.py", line 93, in <module>
+    logits = model(x)
+             ^^^^^^^^
+  File "C:\Users\giang\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\modules\module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\giang\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\modules\module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\giang\Desktop\Transformer\model.py", line 100, in forward
+    x = self.pose_embed(x) + self.vel_embed(vel)
+        ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\giang\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\modules\module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\giang\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\modules\module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\giang\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\modules\linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (512x896 and 42x384)

@@ -1,0 +1,11 @@
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Fall\labels...
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Non_Fall\labels...
+✅ Loaded 1878 samples | Fall=718 | NonFall=1160
+📊 Dataset split | Train=1314 | Val=375 | Test=189
+🎯 Class distribution: Counter({0: 1160, 1: 718})
+🎯 CE class weights: [0.38232162594795227, 0.6176784038543701]
+Traceback (most recent call last):
+  File "c:\Users\giang\Desktop\Transformer\training.py", line 73, in <module>
+    model = ViTFallDetector().to(DEVICE)
+            ^^^^^^^^^^^^^^^^^
+TypeError: ViTFallDetector.__init__() missing 1 required positional argument: 'input_dim'

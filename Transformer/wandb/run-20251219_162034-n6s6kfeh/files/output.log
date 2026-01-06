@@ -1,0 +1,38 @@
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Fall\labels...
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Non_Fall\labels...
+✅ Loaded 1878 samples | Fall=718 | NonFall=1160
+📊 Dataset split | Train=1314 | Val=375 | Test=189
+🎯 Class distribution: Counter({0: 1160, 1: 718})
+🎯 Focal alpha: [0.0008620689623057842, 0.0013927576364949346]
+Epoch [01/30] | Val F1: 0.5459
+Epoch [02/30] | Val F1: 0.5493
+Epoch [03/30] | Val F1: 0.5493
+Epoch [04/30] | Val F1: 0.5493
+Epoch [05/30] | Val F1: 0.5493
+Epoch [06/30] | Val F1: 0.5493
+Epoch [07/30] | Val F1: 0.5493
+Epoch [08/30] | Val F1: 0.5493
+Epoch [09/30] | Val F1: 0.5493
+Epoch [10/30] | Val F1: 0.5493
+Epoch [11/30] | Val F1: 0.5493
+Epoch [12/30] | Val F1: 0.5493
+Epoch [13/30] | Val F1: 0.5493
+Epoch [14/30] | Val F1: 0.5493
+Epoch [15/30] | Val F1: 0.5493
+Epoch [16/30] | Val F1: 0.5493
+Epoch [17/30] | Val F1: 0.5493
+Epoch [18/30] | Val F1: 0.5493
+Epoch [19/30] | Val F1: 0.5493
+Epoch [20/30] | Val F1: 0.5493
+Epoch [21/30] | Val F1: 0.5493
+Epoch [22/30] | Val F1: 0.5493
+Epoch [23/30] | Val F1: 0.5493
+Epoch [24/30] | Val F1: 0.5493
+Epoch [25/30] | Val F1: 0.5493
+Epoch [26/30] | Val F1: 0.5493
+Epoch [27/30] | Val F1: 0.5493
+Epoch [28/30] | Val F1: 0.5493
+Epoch [29/30] | Val F1: 0.5493
+Epoch [30/30] | Val F1: 0.5493
+
+🧪 TEST evaluation

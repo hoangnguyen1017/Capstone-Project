@@ -1,0 +1,16 @@
+{"time":"2026-01-01T14:35:37.1005702+07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\giang\\Desktop\\Transformer\\wandb\\run-20260101_143536-hm35w19d\\logs\\debug-core.log"}
+{"time":"2026-01-01T14:35:37.9451737+07:00","level":"INFO","msg":"stream: created new stream","id":"hm35w19d"}
+{"time":"2026-01-01T14:35:37.9451737+07:00","level":"INFO","msg":"stream: started","id":"hm35w19d"}
+{"time":"2026-01-01T14:35:37.9451737+07:00","level":"INFO","msg":"handler: started","stream_id":"hm35w19d"}
+{"time":"2026-01-01T14:35:37.9451737+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"hm35w19d"}
+{"time":"2026-01-01T14:35:37.9451737+07:00","level":"INFO","msg":"sender: started","stream_id":"hm35w19d"}
+{"time":"2026-01-01T14:35:38.3923599+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2026-01-01T14:37:15.636008+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2026-01-01T14:37:15.636008+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2026-01-01T14:37:16.6430344+07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading media\\images\\test\\confusion_30_bdf74a6ab6db50daeb9d.png","runtime_seconds":0.6025332,"progress":"14.3KB/14.3KB"},{"desc":"uploading output.log","runtime_seconds":0.6025332,"progress":"1.7KB/1.7KB"},{"desc":"uploading config.yaml","runtime_seconds":0.194282,"progress":"636B/636B"}],"total_operations":3}}
+{"time":"2026-01-01T14:37:17.1662762+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-01-01T14:37:17.7878138+07:00","level":"INFO","msg":"stream: closing","id":"hm35w19d"}
+{"time":"2026-01-01T14:37:17.7878138+07:00","level":"INFO","msg":"handler: closed","stream_id":"hm35w19d"}
+{"time":"2026-01-01T14:37:17.7878138+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"hm35w19d"}
+{"time":"2026-01-01T14:37:17.7878138+07:00","level":"INFO","msg":"sender: closed","stream_id":"hm35w19d"}
+{"time":"2026-01-01T14:37:17.7883181+07:00","level":"INFO","msg":"stream: closed","id":"hm35w19d"}

@@ -1,0 +1,15 @@
+{"time":"2025-12-19T16:35:21.3855672+07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\giang\\Desktop\\Transformer\\wandb\\run-20251219_163521-cuhd4yfh\\logs\\debug-core.log"}
+{"time":"2025-12-19T16:35:22.0517672+07:00","level":"INFO","msg":"stream: created new stream","id":"cuhd4yfh"}
+{"time":"2025-12-19T16:35:22.0522936+07:00","level":"INFO","msg":"stream: started","id":"cuhd4yfh"}
+{"time":"2025-12-19T16:35:22.0522936+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"cuhd4yfh"}
+{"time":"2025-12-19T16:35:22.0522936+07:00","level":"INFO","msg":"handler: started","stream_id":"cuhd4yfh"}
+{"time":"2025-12-19T16:35:22.0522936+07:00","level":"INFO","msg":"sender: started","stream_id":"cuhd4yfh"}
+{"time":"2025-12-19T16:35:22.5839253+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-12-19T16:35:24.2863047+07:00","level":"INFO","msg":"stream: closing","id":"cuhd4yfh"}
+{"time":"2025-12-19T16:35:24.2863047+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-12-19T16:35:24.2863047+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-12-19T16:35:25.6510661+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-19T16:35:26.1883898+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"cuhd4yfh"}
+{"time":"2025-12-19T16:35:26.1883898+07:00","level":"INFO","msg":"handler: closed","stream_id":"cuhd4yfh"}
+{"time":"2025-12-19T16:35:26.1883898+07:00","level":"INFO","msg":"sender: closed","stream_id":"cuhd4yfh"}
+{"time":"2025-12-19T16:35:26.1889676+07:00","level":"INFO","msg":"stream: closed","id":"cuhd4yfh"}

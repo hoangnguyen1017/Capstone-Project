@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "c:\Users\giang\Desktop\CNN-LSTM\trainning.py", line 120, in <module>
+    train_model(fall_dir, nonfall_dir, device=device)
+  File "c:\Users\giang\Desktop\CNN-LSTM\trainning.py", line 35, in train_model
+    train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\giang\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\dataloader.py", line 349, in __init__
+    sampler = RandomSampler(dataset, generator=generator)  # type: ignore[arg-type]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\giang\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\sampler.py", line 140, in __init__
+    raise ValueError(f"num_samples should be a positive integer value, but got num_samples={self.num_samples}")
+ValueError: num_samples should be a positive integer value, but got num_samples=0

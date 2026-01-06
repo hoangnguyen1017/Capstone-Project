@@ -1,0 +1,46 @@
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Fall\labels...
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Non_Fall\labels...
+✅ Loaded 1878 samples | Fall=718 | NonFall=1160
+📊 Dataset split | Train=1314 | Val=375 | Test=189
+🎯 Class distribution: Counter({0: 1160, 1: 718})
+🎯 CE weights: [0.38232162594795227, 0.6176784038543701]
+C:\Users\giang\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\modules\transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+Epoch [01/30] | Train F1: 0.7528 | Val F1: 0.8069
+Epoch [02/30] | Train F1: 0.8315 | Val F1: 0.7950
+Epoch [03/30] | Train F1: 0.8614 | Val F1: 0.8467
+Epoch [04/30] | Train F1: 0.8752 | Val F1: 0.8763
+Epoch [05/30] | Train F1: 0.8858 | Val F1: 0.8085
+Epoch [06/30] | Train F1: 0.8775 | Val F1: 0.8710
+Epoch [07/30] | Train F1: 0.9135 | Val F1: 0.8421
+Epoch [08/30] | Train F1: 0.9065 | Val F1: 0.8428
+Epoch [09/30] | Train F1: 0.9339 | Val F1: 0.8639
+Epoch [10/30] | Train F1: 0.9403 | Val F1: 0.8819
+Epoch [11/30] | Train F1: 0.9444 | Val F1: 0.8552
+Epoch [12/30] | Train F1: 0.9575 | Val F1: 0.8746
+Epoch [13/30] | Train F1: 0.9446 | Val F1: 0.8896
+Epoch [14/30] | Train F1: 0.9502 | Val F1: 0.8866
+Epoch [15/30] | Train F1: 0.9566 | Val F1: 0.8683
+Epoch [16/30] | Train F1: 0.9605 | Val F1: 0.8889
+Epoch [17/30] | Train F1: 0.9620 | Val F1: 0.8643
+Epoch [18/30] | Train F1: 0.9707 | Val F1: 0.8759
+Epoch [19/30] | Train F1: 0.9738 | Val F1: 0.8935
+Epoch [20/30] | Train F1: 0.9789 | Val F1: 0.8889
+Epoch [21/30] | Train F1: 0.9769 | Val F1: 0.8942
+Epoch [22/30] | Train F1: 0.9718 | Val F1: 0.8897
+Epoch [23/30] | Train F1: 0.9779 | Val F1: 0.8904
+Epoch [24/30] | Train F1: 0.9789 | Val F1: 0.8851
+Epoch [25/30] | Train F1: 0.9720 | Val F1: 0.8935
+Epoch [26/30] | Train F1: 0.9820 | Val F1: 0.9003
+Epoch [27/30] | Train F1: 0.9850 | Val F1: 0.9024
+Epoch [28/30] | Train F1: 0.9839 | Val F1: 0.8949
+Epoch [29/30] | Train F1: 0.9840 | Val F1: 0.9103
+Epoch [30/30] | Train F1: 0.9810 | Val F1: 0.8912
+📊 VAL Confusion Matrix
+ [[212  17]
+ [ 15 131]]
+
+🧪 TEST evaluation
+📊 TEST Confusion Matrix
+ [[107   7]
+ [ 10  65]]

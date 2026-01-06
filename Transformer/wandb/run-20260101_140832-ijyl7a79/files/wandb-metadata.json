@@ -1,0 +1,39 @@
+{
+  "os":  "Windows-10-10.0.26200-SP0",
+  "python":  "CPython 3.11.8",
+  "startedAt":  "2026-01-01T07:08:32.392180Z",
+  "program":  "c:\\Users\\giang\\Desktop\\Transformer\\training.py",
+  "codePath":  "training.py",
+  "email":  "gianguyen442003@gmail.com",
+  "root":  "C:\\Users\\giang\\Desktop\\Transformer",
+  "host":  "Nemo",
+  "executable":  "C:\\Users\\giang\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+  "codePathLocal":  "training.py",
+  "cpu_count":  8,
+  "cpu_count_logical":  16,
+  "gpu":  "NVIDIA GeForce RTX 2060",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "479476387840",
+      "used":  "353220046848"
+    }
+  },
+  "memory":  {
+    "total":  "25146531840"
+  },
+  "cpu":  {
+    "count":  8,
+    "countLogical":  16
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA GeForce RTX 2060",
+      "memoryTotal":  "6442450944",
+      "cudaCores":  1920,
+      "architecture":  "Turing",
+      "uuid":  "GPU-4f80330e-df1a-ef74-16e1-adc5727dae7e"
+    }
+  ],
+  "cudaVersion":  "13.0"
+}

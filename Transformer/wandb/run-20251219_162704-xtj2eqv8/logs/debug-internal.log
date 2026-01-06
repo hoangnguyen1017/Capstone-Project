@@ -1,0 +1,16 @@
+{"time":"2025-12-19T16:27:04.3429386+07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\giang\\Desktop\\Transformer\\wandb\\run-20251219_162704-xtj2eqv8\\logs\\debug-core.log"}
+{"time":"2025-12-19T16:27:05.0139635+07:00","level":"INFO","msg":"stream: created new stream","id":"xtj2eqv8"}
+{"time":"2025-12-19T16:27:05.0139635+07:00","level":"INFO","msg":"stream: started","id":"xtj2eqv8"}
+{"time":"2025-12-19T16:27:05.0139635+07:00","level":"INFO","msg":"handler: started","stream_id":"xtj2eqv8"}
+{"time":"2025-12-19T16:27:05.0139635+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"xtj2eqv8"}
+{"time":"2025-12-19T16:27:05.0139635+07:00","level":"INFO","msg":"sender: started","stream_id":"xtj2eqv8"}
+{"time":"2025-12-19T16:27:05.5371464+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-12-19T16:27:51.6025107+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-12-19T16:27:51.6025107+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-12-19T16:27:52.6065214+07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.2024482,"progress":"657B/657B"}],"total_operations":1}}
+{"time":"2025-12-19T16:27:52.837326+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-19T16:27:53.660901+07:00","level":"INFO","msg":"stream: closing","id":"xtj2eqv8"}
+{"time":"2025-12-19T16:27:53.660901+07:00","level":"INFO","msg":"handler: closed","stream_id":"xtj2eqv8"}
+{"time":"2025-12-19T16:27:53.660901+07:00","level":"INFO","msg":"sender: closed","stream_id":"xtj2eqv8"}
+{"time":"2025-12-19T16:27:53.660901+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"xtj2eqv8"}
+{"time":"2025-12-19T16:27:53.660901+07:00","level":"INFO","msg":"stream: closed","id":"xtj2eqv8"}

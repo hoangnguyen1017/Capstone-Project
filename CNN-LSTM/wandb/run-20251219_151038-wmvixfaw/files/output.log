@@ -1,0 +1,35 @@
+📊 Dataset split | Train: 1314 | Val: 375 | Test: 189
+Epoch [1/30] | Train F1: 0.6678 | Val F1: 0.7898 | FPS: 7565.0
+Epoch [2/30] | Train F1: 0.7854 | Val F1: 0.8782 | FPS: 22897.9
+Epoch [3/30] | Train F1: 0.8475 | Val F1: 0.5171 | FPS: 11463.9
+Epoch [4/30] | Train F1: 0.7958 | Val F1: 0.7860 | FPS: 22925.1
+Epoch [5/30] | Train F1: 0.8765 | Val F1: 0.8011 | FPS: 11466.7
+Epoch [6/30] | Train F1: 0.8627 | Val F1: 0.7927 | FPS: 11466.7
+Epoch [7/30] | Train F1: 0.8850 | Val F1: 0.8205 | FPS: 11459.8
+Epoch [8/30] | Train F1: 0.8878 | Val F1: 0.8805 | FPS: 11357.3
+Epoch [9/30] | Train F1: 0.8968 | Val F1: 0.7902 | FPS: 22310.1
+Epoch [10/30] | Train F1: 0.8968 | Val F1: 0.7943 | FPS: 11483.0
+Epoch [11/30] | Train F1: 0.8869 | Val F1: 0.8944 | FPS: 11263.2
+Epoch [12/30] | Train F1: 0.9114 | Val F1: 0.6914 | FPS: 11260.5
+Epoch [13/30] | Train F1: 0.8596 | Val F1: 0.8725 | FPS: 11196.5
+Epoch [14/30] | Train F1: 0.8963 | Val F1: 0.8780 | FPS: 11317.3
+Epoch [15/30] | Train F1: 0.9080 | Val F1: 0.8303 | FPS: 11122.9
+Epoch [16/30] | Train F1: 0.9143 | Val F1: 0.7846 | FPS: 11284.2
+Epoch [17/30] | Train F1: 0.9171 | Val F1: 0.9017 | FPS: 11206.9
+Epoch [18/30] | Train F1: 0.9277 | Val F1: 0.8551 | FPS: 11213.4
+Epoch [19/30] | Train F1: 0.9071 | Val F1: 0.8530 | FPS: 11334.6
+Epoch [20/30] | Train F1: 0.9344 | Val F1: 0.8681 | FPS: 11279.0
+Epoch [21/30] | Train F1: 0.9064 | Val F1: 0.8582 | FPS: 11041.4
+Epoch [22/30] | Train F1: 0.8753 | Val F1: 0.8315 | FPS: 11165.4
+Epoch [23/30] | Train F1: 0.9312 | Val F1: 0.8970 | FPS: 22284.4
+Epoch [24/30] | Train F1: 0.9082 | Val F1: 0.9329 | FPS: 11113.9
+Epoch [25/30] | Train F1: 0.9223 | Val F1: 0.8643 | FPS: 10751.0
+Epoch [26/30] | Train F1: 0.9441 | Val F1: 0.9116 | FPS: 11292.2
+Epoch [27/30] | Train F1: 0.9583 | Val F1: 0.8817 | FPS: 11293.5
+Epoch [28/30] | Train F1: 0.9580 | Val F1: 0.9122 | FPS: 11312.0
+Epoch [29/30] | Train F1: 0.9514 | Val F1: 0.8642 | FPS: 11344.0
+Epoch [30/30] | Train F1: 0.9572 | Val F1: 0.9205 | FPS: 7513.7
+
+🧪 Running TEST set evaluation...
+
+✅ TEST RESULT | Acc: 0.8836 | F1: 0.8571

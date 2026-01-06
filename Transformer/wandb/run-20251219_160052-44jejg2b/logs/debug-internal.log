@@ -1,0 +1,16 @@
+{"time":"2025-12-19T16:00:52.2835374+07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\giang\\Desktop\\Transformer\\wandb\\run-20251219_160052-44jejg2b\\logs\\debug-core.log"}
+{"time":"2025-12-19T16:00:52.9685877+07:00","level":"INFO","msg":"stream: created new stream","id":"44jejg2b"}
+{"time":"2025-12-19T16:00:52.9685877+07:00","level":"INFO","msg":"stream: started","id":"44jejg2b"}
+{"time":"2025-12-19T16:00:52.9685877+07:00","level":"INFO","msg":"handler: started","stream_id":"44jejg2b"}
+{"time":"2025-12-19T16:00:52.9685877+07:00","level":"INFO","msg":"sender: started","stream_id":"44jejg2b"}
+{"time":"2025-12-19T16:00:52.9685877+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"44jejg2b"}
+{"time":"2025-12-19T16:00:53.4796522+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-12-19T16:01:44.928942+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-12-19T16:01:44.928942+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-12-19T16:01:45.9397112+07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.646198,"progress":"964B/964B"},{"desc":"uploading config.yaml","runtime_seconds":0.2409664,"progress":"610B/610B"}],"total_operations":2}}
+{"time":"2025-12-19T16:01:46.313699+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-19T16:01:46.9345462+07:00","level":"INFO","msg":"stream: closing","id":"44jejg2b"}
+{"time":"2025-12-19T16:01:46.9345462+07:00","level":"INFO","msg":"handler: closed","stream_id":"44jejg2b"}
+{"time":"2025-12-19T16:01:46.9345462+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"44jejg2b"}
+{"time":"2025-12-19T16:01:46.9345462+07:00","level":"INFO","msg":"sender: closed","stream_id":"44jejg2b"}
+{"time":"2025-12-19T16:01:46.9350685+07:00","level":"INFO","msg":"stream: closed","id":"44jejg2b"}

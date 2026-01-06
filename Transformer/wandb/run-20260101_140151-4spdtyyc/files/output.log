@@ -1,0 +1,7 @@
+✅ Loaded 1909 samples | Fall=726 | NonFall=1183
+📊 Dataset split | Train=1336 | Val=381 | Test=192
+Traceback (most recent call last):
+  File "c:\Users\giang\Desktop\Transformer\training.py", line 64, in <module>
+    cnt = Counter(dataset.labels)
+                  ^^^^^^^^^^^^^^
+AttributeError: 'FallDataset' object has no attribute 'labels'

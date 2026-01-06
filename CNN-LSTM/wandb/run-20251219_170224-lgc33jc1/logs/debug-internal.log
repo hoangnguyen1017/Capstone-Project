@@ -1,0 +1,16 @@
+{"time":"2025-12-19T17:02:24.6403815+07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\giang\\Desktop\\CNN-LSTM\\wandb\\run-20251219_170224-lgc33jc1\\logs\\debug-core.log"}
+{"time":"2025-12-19T17:02:25.3221981+07:00","level":"INFO","msg":"stream: created new stream","id":"lgc33jc1"}
+{"time":"2025-12-19T17:02:25.3221981+07:00","level":"INFO","msg":"stream: started","id":"lgc33jc1"}
+{"time":"2025-12-19T17:02:25.3221981+07:00","level":"INFO","msg":"sender: started","stream_id":"lgc33jc1"}
+{"time":"2025-12-19T17:02:25.3221981+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"lgc33jc1"}
+{"time":"2025-12-19T17:02:25.3221981+07:00","level":"INFO","msg":"handler: started","stream_id":"lgc33jc1"}
+{"time":"2025-12-19T17:02:25.7498618+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-12-19T17:03:02.3775572+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-12-19T17:03:02.3775572+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-12-19T17:03:03.3901316+07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading media\\images\\test\\confusion_31_9eb1a4a273f34b9c1b74.png","runtime_seconds":0.4871615,"progress":"14.5KB/14.5KB"},{"desc":"uploading output.log","runtime_seconds":0.4871615,"progress":"2.1KB/2.1KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.4871615,"progress":"854B/854B"},{"desc":"uploading config.yaml","runtime_seconds":0.0789829,"progress":"670B/670B"}],"total_operations":4}}
+{"time":"2025-12-19T17:03:03.9989101+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-19T17:03:04.6485219+07:00","level":"INFO","msg":"stream: closing","id":"lgc33jc1"}
+{"time":"2025-12-19T17:03:04.6485219+07:00","level":"INFO","msg":"handler: closed","stream_id":"lgc33jc1"}
+{"time":"2025-12-19T17:03:04.6485219+07:00","level":"INFO","msg":"sender: closed","stream_id":"lgc33jc1"}
+{"time":"2025-12-19T17:03:04.6485219+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"lgc33jc1"}
+{"time":"2025-12-19T17:03:04.6485219+07:00","level":"INFO","msg":"stream: closed","id":"lgc33jc1"}

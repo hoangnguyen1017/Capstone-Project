@@ -1,0 +1,15 @@
+{"time":"2026-01-01T14:04:23.3628023+07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\giang\\Desktop\\Transformer\\wandb\\run-20260101_140423-b770qosb\\logs\\debug-core.log"}
+{"time":"2026-01-01T14:04:24.1337641+07:00","level":"INFO","msg":"stream: created new stream","id":"b770qosb"}
+{"time":"2026-01-01T14:04:24.1337641+07:00","level":"INFO","msg":"stream: started","id":"b770qosb"}
+{"time":"2026-01-01T14:04:24.1337641+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"b770qosb"}
+{"time":"2026-01-01T14:04:24.1337641+07:00","level":"INFO","msg":"handler: started","stream_id":"b770qosb"}
+{"time":"2026-01-01T14:04:24.1337641+07:00","level":"INFO","msg":"sender: started","stream_id":"b770qosb"}
+{"time":"2026-01-01T14:04:24.6254139+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2026-01-01T14:04:27.6501623+07:00","level":"INFO","msg":"stream: closing","id":"b770qosb"}
+{"time":"2026-01-01T14:04:27.6501623+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2026-01-01T14:04:27.6501623+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2026-01-01T14:04:29.1214753+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-01-01T14:04:29.736221+07:00","level":"INFO","msg":"handler: closed","stream_id":"b770qosb"}
+{"time":"2026-01-01T14:04:29.736221+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"b770qosb"}
+{"time":"2026-01-01T14:04:29.736221+07:00","level":"INFO","msg":"sender: closed","stream_id":"b770qosb"}
+{"time":"2026-01-01T14:04:29.7367634+07:00","level":"INFO","msg":"stream: closed","id":"b770qosb"}

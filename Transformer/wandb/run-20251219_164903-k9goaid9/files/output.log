@@ -1,0 +1,36 @@
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Fall\labels...
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Non_Fall\labels...
+✅ Loaded 1878 samples | Fall=718 | NonFall=1160
+📊 Dataset split | Train=1314 | Val=375 | Test=189
+C:\Users\giang\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\modules\transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+Epoch [01] | Train F1 0.758 | Val F1 0.777
+Epoch [02] | Train F1 0.834 | Val F1 0.878
+Epoch [03] | Train F1 0.863 | Val F1 0.891
+Epoch [04] | Train F1 0.862 | Val F1 0.810
+Epoch [05] | Train F1 0.876 | Val F1 0.912
+Epoch [06] | Train F1 0.902 | Val F1 0.877
+Epoch [07] | Train F1 0.907 | Val F1 0.927
+Epoch [08] | Train F1 0.900 | Val F1 0.895
+Epoch [09] | Train F1 0.910 | Val F1 0.905
+Epoch [10] | Train F1 0.905 | Val F1 0.920
+Epoch [11] | Train F1 0.927 | Val F1 0.939
+Epoch [12] | Train F1 0.921 | Val F1 0.861
+Epoch [13] | Train F1 0.925 | Val F1 0.828
+Epoch [14] | Train F1 0.934 | Val F1 0.895
+Epoch [15] | Train F1 0.945 | Val F1 0.908
+Epoch [16] | Train F1 0.951 | Val F1 0.928
+Epoch [17] | Train F1 0.962 | Val F1 0.934
+Epoch [18] | Train F1 0.965 | Val F1 0.925
+Epoch [19] | Train F1 0.967 | Val F1 0.951
+Epoch [20] | Train F1 0.954 | Val F1 0.841
+Epoch [21] | Train F1 0.966 | Val F1 0.941
+Epoch [22] | Train F1 0.969 | Val F1 0.933
+Epoch [23] | Train F1 0.970 | Val F1 0.937
+Epoch [24] | Train F1 0.979 | Val F1 0.948
+Epoch [25] | Train F1 0.978 | Val F1 0.923
+Epoch [26] | Train F1 0.977 | Val F1 0.952
+Epoch [27] | Train F1 0.982 | Val F1 0.948
+Epoch [28] | Train F1 0.984 | Val F1 0.922
+Epoch [29] | Train F1 0.980 | Val F1 0.926
+Epoch [30] | Train F1 0.981 | Val F1 0.932

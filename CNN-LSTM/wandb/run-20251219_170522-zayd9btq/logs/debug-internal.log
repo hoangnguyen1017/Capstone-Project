@@ -1,0 +1,16 @@
+{"time":"2025-12-19T17:05:23.02714+07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\giang\\Desktop\\CNN-LSTM\\wandb\\run-20251219_170522-zayd9btq\\logs\\debug-core.log"}
+{"time":"2025-12-19T17:05:23.5991901+07:00","level":"INFO","msg":"stream: created new stream","id":"zayd9btq"}
+{"time":"2025-12-19T17:05:23.5997184+07:00","level":"INFO","msg":"stream: started","id":"zayd9btq"}
+{"time":"2025-12-19T17:05:23.5997184+07:00","level":"INFO","msg":"handler: started","stream_id":"zayd9btq"}
+{"time":"2025-12-19T17:05:23.5997184+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"zayd9btq"}
+{"time":"2025-12-19T17:05:23.5997184+07:00","level":"INFO","msg":"sender: started","stream_id":"zayd9btq"}
+{"time":"2025-12-19T17:05:24.0132472+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-12-19T17:06:07.8493192+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-12-19T17:06:07.8493192+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-12-19T17:06:08.8527579+07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.5045167,"progress":"2.1KB/2.1KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.5045167,"progress":"855B/855B"},{"desc":"uploading media\\images\\test\\confusion_31_6b6746ed0ecf7f9e083f.png","runtime_seconds":0.5045167,"progress":"14.2KB/14.2KB"}],"total_operations":3}}
+{"time":"2025-12-19T17:06:09.3723833+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-19T17:06:09.9951823+07:00","level":"INFO","msg":"stream: closing","id":"zayd9btq"}
+{"time":"2025-12-19T17:06:09.9951823+07:00","level":"INFO","msg":"handler: closed","stream_id":"zayd9btq"}
+{"time":"2025-12-19T17:06:09.9951823+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"zayd9btq"}
+{"time":"2025-12-19T17:06:09.9951823+07:00","level":"INFO","msg":"sender: closed","stream_id":"zayd9btq"}
+{"time":"2025-12-19T17:06:09.9956876+07:00","level":"INFO","msg":"stream: closed","id":"zayd9btq"}

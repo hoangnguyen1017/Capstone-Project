@@ -1,0 +1,15 @@
+{"time":"2026-01-01T14:06:19.7873141+07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\giang\\Desktop\\Transformer\\wandb\\run-20260101_140619-tutm8k9u\\logs\\debug-core.log"}
+{"time":"2026-01-01T14:06:20.4348027+07:00","level":"INFO","msg":"stream: created new stream","id":"tutm8k9u"}
+{"time":"2026-01-01T14:06:20.4353898+07:00","level":"INFO","msg":"stream: started","id":"tutm8k9u"}
+{"time":"2026-01-01T14:06:20.4353898+07:00","level":"INFO","msg":"handler: started","stream_id":"tutm8k9u"}
+{"time":"2026-01-01T14:06:20.4353898+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"tutm8k9u"}
+{"time":"2026-01-01T14:06:20.4353898+07:00","level":"INFO","msg":"sender: started","stream_id":"tutm8k9u"}
+{"time":"2026-01-01T14:06:20.8470944+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2026-01-01T14:06:21.7624271+07:00","level":"INFO","msg":"stream: closing","id":"tutm8k9u"}
+{"time":"2026-01-01T14:06:21.7624271+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2026-01-01T14:06:21.7629833+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2026-01-01T14:06:23.2972573+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-01-01T14:06:23.9108536+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"tutm8k9u"}
+{"time":"2026-01-01T14:06:23.9108536+07:00","level":"INFO","msg":"sender: closed","stream_id":"tutm8k9u"}
+{"time":"2026-01-01T14:06:23.9108536+07:00","level":"INFO","msg":"handler: closed","stream_id":"tutm8k9u"}
+{"time":"2026-01-01T14:06:23.9116049+07:00","level":"INFO","msg":"stream: closed","id":"tutm8k9u"}

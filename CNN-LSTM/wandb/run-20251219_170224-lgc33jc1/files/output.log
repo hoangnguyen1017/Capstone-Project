@@ -1,0 +1,41 @@
+📊 Dataset split | Train=1314 | Val=375 | Test=189
+Epoch [1/30] | Train F1: 0.6626 | Val F1: 0.7399 | FPS: 1399.4
+Epoch [2/30] | Train F1: 0.7768 | Val F1: 0.8489 | FPS: 3446.0
+Epoch [3/30] | Train F1: 0.8220 | Val F1: 0.8693 | FPS: 3489.9
+Epoch [4/30] | Train F1: 0.8640 | Val F1: 0.7705 | FPS: 3461.9
+Epoch [5/30] | Train F1: 0.8504 | Val F1: 0.8473 | FPS: 3489.9
+Epoch [6/30] | Train F1: 0.8679 | Val F1: 0.8382 | FPS: 3453.7
+Epoch [7/30] | Train F1: 0.8586 | Val F1: 0.8370 | FPS: 3458.2
+Epoch [8/30] | Train F1: 0.8727 | Val F1: 0.8768 | FPS: 3469.2
+Epoch [9/30] | Train F1: 0.8662 | Val F1: 0.8192 | FPS: 3489.9
+Epoch [10/30] | Train F1: 0.8915 | Val F1: 0.8641 | FPS: 4654.4
+Epoch [11/30] | Train F1: 0.8939 | Val F1: 0.8582 | FPS: 3445.2
+Epoch [12/30] | Train F1: 0.8795 | Val F1: 0.8732 | FPS: 3231.0
+Epoch [13/30] | Train F1: 0.8963 | Val F1: 0.8699 | FPS: 2279.9
+Epoch [14/30] | Train F1: 0.8987 | Val F1: 0.8767 | FPS: 3489.9
+Epoch [15/30] | Train F1: 0.8851 | Val F1: 0.8797 | FPS: 3310.8
+Epoch [16/30] | Train F1: 0.9030 | Val F1: 0.8881 | FPS: 3484.1
+Epoch [17/30] | Train F1: 0.8853 | Val F1: 0.8936 | FPS: 4403.8
+Epoch [18/30] | Train F1: 0.9087 | Val F1: 0.8296 | FPS: 3487.0
+Epoch [19/30] | Train F1: 0.9050 | Val F1: 0.8849 | FPS: 4486.6
+Epoch [20/30] | Train F1: 0.8957 | Val F1: 0.8920 | FPS: 3498.6
+Epoch [21/30] | Train F1: 0.9054 | Val F1: 0.8676 | FPS: 3274.2
+Epoch [22/30] | Train F1: 0.9146 | Val F1: 0.8993 | FPS: 3483.2
+Epoch [23/30] | Train F1: 0.9122 | Val F1: 0.8794 | FPS: 3483.6
+Epoch [24/30] | Train F1: 0.9076 | Val F1: 0.8535 | FPS: 6541.9
+Epoch [25/30] | Train F1: 0.8925 | Val F1: 0.8664 | FPS: 3491.9
+Epoch [26/30] | Train F1: 0.9021 | Val F1: 0.8788 | FPS: 6980.5
+Epoch [27/30] | Train F1: 0.9134 | Val F1: 0.8963 | FPS: 3413.2
+Epoch [28/30] | Train F1: 0.9098 | Val F1: 0.8803 | FPS: 3497.8
+Epoch [29/30] | Train F1: 0.9047 | Val F1: 0.8662 | FPS: 2270.7
+Epoch [30/30] | Train F1: 0.9162 | Val F1: 0.8929 | FPS: 3502.3
+📊 VAL Confusion Matrix
+ [[222  13]
+ [ 15 125]]
+
+🧪 Running TEST set evaluation...
+📊 TEST Confusion Matrix
+ [[109   2]
+ [ 13  65]]
+
+✅ TEST RESULT | Acc: 0.9206 | F1: 0.8966

@@ -1,0 +1,35 @@
+📊 Dataset split | Train: 1314 | Val: 375 | Test: 189
+Epoch [1/30] | Train F1: 0.6831 | Val F1: 0.6716 | FPS: 4479.2
+Epoch [2/30] | Train F1: 0.7945 | Val F1: 0.7544 | FPS: 7525.5
+Epoch [3/30] | Train F1: 0.8530 | Val F1: 0.7534 | FPS: 7296.6
+Epoch [4/30] | Train F1: 0.8436 | Val F1: 0.8529 | FPS: 11156.4
+Epoch [5/30] | Train F1: 0.8493 | Val F1: 0.8374 | FPS: 11472.1
+Epoch [6/30] | Train F1: 0.8713 | Val F1: 0.8185 | FPS: 11317.3
+Epoch [7/30] | Train F1: 0.8895 | Val F1: 0.8433 | FPS: 11160.2
+Epoch [8/30] | Train F1: 0.8813 | Val F1: 0.7580 | FPS: 11364.0
+Epoch [9/30] | Train F1: 0.8893 | Val F1: 0.8443 | FPS: 11411.0
+Epoch [10/30] | Train F1: 0.9012 | Val F1: 0.5775 | FPS: 11420.5
+Epoch [11/30] | Train F1: 0.8541 | Val F1: 0.8458 | FPS: 7509.7
+Epoch [12/30] | Train F1: 0.8852 | Val F1: 0.7931 | FPS: 11376.1
+Epoch [13/30] | Train F1: 0.8797 | Val F1: 0.8669 | FPS: 8905.1
+Epoch [14/30] | Train F1: 0.9002 | Val F1: 0.8054 | FPS: 7641.7
+Epoch [15/30] | Train F1: 0.9041 | Val F1: 0.7368 | FPS: 11462.6
+Epoch [16/30] | Train F1: 0.9024 | Val F1: 0.8560 | FPS: 7610.4
+Epoch [17/30] | Train F1: 0.9132 | Val F1: 0.8403 | FPS: 7663.0
+Epoch [18/30] | Train F1: 0.9100 | Val F1: 0.8459 | FPS: 5701.8
+Epoch [19/30] | Train F1: 0.9105 | Val F1: 0.8696 | FPS: 7489.8
+Epoch [20/30] | Train F1: 0.9179 | Val F1: 0.8880 | FPS: 5632.9
+Epoch [21/30] | Train F1: 0.9259 | Val F1: 0.8268 | FPS: 7540.2
+Epoch [22/30] | Train F1: 0.9055 | Val F1: 0.8139 | FPS: 7467.8
+Epoch [23/30] | Train F1: 0.9137 | Val F1: 0.8311 | FPS: 11499.5
+Epoch [24/30] | Train F1: 0.9118 | Val F1: 0.8369 | FPS: 10807.6
+Epoch [25/30] | Train F1: 0.9258 | Val F1: 0.8651 | FPS: 7458.6
+Epoch [26/30] | Train F1: 0.9184 | Val F1: 0.8511 | FPS: 7491.0
+Epoch [27/30] | Train F1: 0.9244 | Val F1: 0.7678 | FPS: 7663.6
+Epoch [28/30] | Train F1: 0.9346 | Val F1: 0.9004 | FPS: 11273.7
+Epoch [29/30] | Train F1: 0.9234 | Val F1: 0.8328 | FPS: 7547.8
+Epoch [30/30] | Train F1: 0.9258 | Val F1: 0.8395 | FPS: 9694.4
+
+🧪 Running TEST set evaluation...
+
+✅ TEST RESULT | Acc: 0.9471 | F1: 0.9351

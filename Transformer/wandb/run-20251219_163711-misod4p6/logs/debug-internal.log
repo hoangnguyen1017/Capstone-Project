@@ -1,0 +1,16 @@
+{"time":"2025-12-19T16:37:11.5030294+07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\giang\\Desktop\\Transformer\\wandb\\run-20251219_163711-misod4p6\\logs\\debug-core.log"}
+{"time":"2025-12-19T16:37:12.2525349+07:00","level":"INFO","msg":"stream: created new stream","id":"misod4p6"}
+{"time":"2025-12-19T16:37:12.2525349+07:00","level":"INFO","msg":"stream: started","id":"misod4p6"}
+{"time":"2025-12-19T16:37:12.2525349+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"misod4p6"}
+{"time":"2025-12-19T16:37:12.2530766+07:00","level":"INFO","msg":"handler: started","stream_id":"misod4p6"}
+{"time":"2025-12-19T16:37:12.2525349+07:00","level":"INFO","msg":"sender: started","stream_id":"misod4p6"}
+{"time":"2025-12-19T16:37:12.8696922+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-12-19T16:37:32.4235858+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-12-19T16:37:32.4235858+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-12-19T16:37:33.4404108+07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.1984913,"progress":"1.3KB/1.3KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.1984913,"progress":"206B/206B"}],"total_operations":2}}
+{"time":"2025-12-19T16:37:34.0615213+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-19T16:37:34.6810132+07:00","level":"INFO","msg":"stream: closing","id":"misod4p6"}
+{"time":"2025-12-19T16:37:34.6810132+07:00","level":"INFO","msg":"handler: closed","stream_id":"misod4p6"}
+{"time":"2025-12-19T16:37:34.6810132+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"misod4p6"}
+{"time":"2025-12-19T16:37:34.6810132+07:00","level":"INFO","msg":"sender: closed","stream_id":"misod4p6"}
+{"time":"2025-12-19T16:37:34.6810132+07:00","level":"INFO","msg":"stream: closed","id":"misod4p6"}

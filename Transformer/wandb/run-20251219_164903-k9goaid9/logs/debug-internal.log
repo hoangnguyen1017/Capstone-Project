@@ -1,0 +1,16 @@
+{"time":"2025-12-19T16:49:03.517584+07:00","level":"INFO","msg":"stream: starting","core version":"0.20.1","symlink path":"C:\\Users\\giang\\Desktop\\Transformer\\wandb\\run-20251219_164903-k9goaid9\\logs\\debug-core.log"}
+{"time":"2025-12-19T16:49:04.1399731+07:00","level":"INFO","msg":"stream: created new stream","id":"k9goaid9"}
+{"time":"2025-12-19T16:49:04.1399731+07:00","level":"INFO","msg":"stream: started","id":"k9goaid9"}
+{"time":"2025-12-19T16:49:04.1399731+07:00","level":"INFO","msg":"sender: started","stream_id":"k9goaid9"}
+{"time":"2025-12-19T16:49:04.1399731+07:00","level":"INFO","msg":"handler: started","stream_id":"k9goaid9"}
+{"time":"2025-12-19T16:49:04.1399731+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"k9goaid9"}
+{"time":"2025-12-19T16:49:04.6559988+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-12-19T16:49:54.8319061+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-12-19T16:49:54.8319061+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-12-19T16:49:55.8454051+07:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading media\\images\\test\\confusion_30_0ce515b07bcbb1c1ec3b.png","runtime_seconds":0.6408513,"progress":"14.5KB/14.5KB"},{"desc":"uploading output.log","runtime_seconds":0.6408513,"progress":"1.8KB/1.8KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.6408513,"progress":"588B/588B"},{"desc":"uploading config.yaml","runtime_seconds":0.3006898,"progress":"636B/636B"}],"total_operations":4}}
+{"time":"2025-12-19T16:49:56.2616332+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-19T16:49:56.8858746+07:00","level":"INFO","msg":"stream: closing","id":"k9goaid9"}
+{"time":"2025-12-19T16:49:56.8858746+07:00","level":"INFO","msg":"handler: closed","stream_id":"k9goaid9"}
+{"time":"2025-12-19T16:49:56.8858746+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"k9goaid9"}
+{"time":"2025-12-19T16:49:56.8858746+07:00","level":"INFO","msg":"sender: closed","stream_id":"k9goaid9"}
+{"time":"2025-12-19T16:49:56.8864015+07:00","level":"INFO","msg":"stream: closed","id":"k9goaid9"}

@@ -1,0 +1,22 @@
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Fall\labels...
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Non_Fall\labels...
+✅ Loaded 1878 samples | Fall=718 | NonFall=1160
+📊 Dataset split | Train=1314 | Val=375 | Test=189
+🎯 Class distribution: Counter({0: 1160, 1: 718})
+🎯 CE class weights: [0.38232162594795227, 0.6176784038543701]
+🧩 Model input_dim = 896
+C:\Users\giang\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\modules\transformer.py:282: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+Epoch [01/30] | Train Loss: 0.4215 | Val F1: 0.8104
+Epoch [02/30] | Train Loss: 0.3233 | Val F1: 0.8132
+Epoch [03/30] | Train Loss: 0.3542 | Val F1: 0.8192
+Epoch [04/30] | Train Loss: 0.3186 | Val F1: 0.8175
+Epoch [05/30] | Train Loss: 0.2803 | Val F1: 0.8365
+Epoch [06/30] | Train Loss: 0.2546 | Val F1: 0.8085
+Epoch [07/30] | Train Loss: 0.2868 | Val F1: 0.8296
+Epoch [08/30] | Train Loss: 0.2593 | Val F1: 0.8276
+Epoch [09/30] | Train Loss: 0.2506 | Val F1: 0.8235
+Epoch [10/30] | Train Loss: 0.1987 | Val F1: 0.8084
+🛑 Early stopping (Val F1 plateau)
+
+🧪 TEST evaluation

@@ -1,0 +1,33 @@
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Fall\labels...
+📂 Loading C:\Users\giang\Desktop\data\data_npy\Non_Fall\labels...
+✅ Loaded 1878 samples | Fall=718 | NonFall=1160
+Epoch 00 | Val F1: 0.0000
+Epoch 01 | Val F1: 0.0000
+Epoch 02 | Val F1: 0.6761
+Epoch 03 | Val F1: 0.8108
+Epoch 04 | Val F1: 0.7910
+Epoch 05 | Val F1: 0.8000
+Epoch 06 | Val F1: 0.0000
+Epoch 07 | Val F1: 0.0000
+Epoch 08 | Val F1: 0.0000
+Epoch 09 | Val F1: 0.0000
+Epoch 10 | Val F1: 0.0000
+Epoch 11 | Val F1: 0.0000
+Epoch 12 | Val F1: 0.0000
+Epoch 13 | Val F1: 0.0000
+Epoch 14 | Val F1: 0.0000
+Epoch 15 | Val F1: 0.0000
+Epoch 16 | Val F1: 0.0000
+Epoch 17 | Val F1: 0.0000
+Epoch 18 | Val F1: 0.0000
+Epoch 19 | Val F1: 0.0000
+Epoch 20 | Val F1: 0.0000
+Epoch 21 | Val F1: 0.0000
+Epoch 22 | Val F1: 0.0000
+Epoch 23 | Val F1: 0.0000
+Epoch 24 | Val F1: 0.0000
+Epoch 25 | Val F1: 0.0000
+Epoch 26 | Val F1: 0.0000
+Epoch 27 | Val F1: 0.0000
+Epoch 28 | Val F1: 0.0000
+Epoch 29 | Val F1: 0.0000
