@@ -3,12 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, random_split
 from torch.optim.lr_scheduler import ReduceLROnPlateau
-from sklearn.metrics import (
-    f1_score,
-    accuracy_score,
-    confusion_matrix,
-    recall_score          
-)
+from sklearn.metrics import accuracy_score, f1_score, confusion_matrix, recall_score
 from collections import Counter
 import wandb
 import matplotlib.pyplot as plt
@@ -30,30 +25,31 @@ wandb.init(
         'early_stop': 10
     }
 )
+
 cfg = wandb.config
+
 fall_dir = r"D:\data_npy\Fall\labels"
 nonfall_dir = r"D:\data_npy\Non_Fall\labels"
+
 dataset = FallDataset(
     fall_dir,
     nonfall_dir,
     seq_len=cfg.seq_len,
-    augment=True
 )
 
 N = len(dataset)
 train_len = int(0.7 * N)
-val_len   = int(0.2 * N)
-test_len  = N - train_len - val_len
+val_len = int(0.2 * N)
+test_len = N - train_len - val_len
 
 train_set, val_set, test_set = random_split(
     dataset, [train_len, val_len, test_len]
 )
 
 train_loader = DataLoader(train_set, cfg.batch, shuffle=True)
-val_loader   = DataLoader(val_set, cfg.batch)
-test_loader  = DataLoader(test_set, cfg.batch)
+val_loader = DataLoader(val_set, cfg.batch)
+test_loader = DataLoader(test_set, cfg.batch)
 
-print(f"Dataset split | Train={train_len} | Val={val_len} | Test={test_len}")
 cnt = Counter(dataset.labels)
 total = cnt[0] + cnt[1]
 
@@ -62,17 +58,16 @@ class_weights = torch.tensor(
     device=DEVICE
 )
 
-criterion = nn.CrossEntropyLoss(
-    weight=class_weights
-)
+criterion = nn.CrossEntropyLoss(weight=class_weights)
+
 sample_x, _ = dataset[0]
 input_dim = sample_x.shape[-1]
 
 model = ViTFallDetector(
-    joints=14,
-    channels=3,
+    input_dim=input_dim,
     embed_dim=256,
     heads=4,
+    layers=3,
     classes=2,
     max_len=cfg.seq_len,
     dropout=0.2
@@ -85,12 +80,18 @@ optimizer = optim.AdamW(
 )
 
 scheduler = ReduceLROnPlateau(
-    optimizer, mode='max', patience=3, factor=0.5
+    optimizer,
+    mode='max',
+    patience=3,
+    factor=0.5
 )
+
 def plot_confusion(cm, title):
     fig, ax = plt.subplots(figsize=(4, 4))
     sns.heatmap(
-        cm, annot=True, fmt='d',
+        cm,
+        annot=True,
+        fmt='d',
         cmap='Blues',
         xticklabels=['Non-Fall', 'Fall'],
         yticklabels=['Non-Fall', 'Fall'],
@@ -100,21 +101,22 @@ def plot_confusion(cm, title):
     ax.set_xlabel("Predicted")
     ax.set_ylabel("True")
     return fig
+
 best_f1 = 0.0
 patience_ctr = 0
 
 for epoch in range(cfg.epochs):
     model.train()
-    train_loss, train_preds, train_labels = 0, [], []
+    train_loss = 0
+    train_preds, train_labels = [], []
 
     for x, y in train_loader:
         x, y = x.to(DEVICE), y.to(DEVICE)
-        optimizer.zero_grad()
 
+        optimizer.zero_grad()
         logits = model(x)
         loss = criterion(logits, y)
         loss.backward()
-
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         optimizer.step()
 
@@ -124,9 +126,13 @@ for epoch in range(cfg.epochs):
 
     train_loss /= len(train_loader)
     train_acc = accuracy_score(train_labels, train_preds)
-    train_f1  = f1_score(train_labels, train_preds)
+    train_f1 = f1_score(train_labels, train_preds)
+    train_recall = recall_score(train_labels, train_preds, average="macro")
+    train_fall_recall = recall_score(train_labels, train_preds, pos_label=1)
+
     model.eval()
-    val_loss, val_preds, val_labels = 0, [], []
+    val_loss = 0
+    val_preds, val_labels = [], []
 
     with torch.no_grad():
         for x, y in val_loader:
@@ -140,8 +146,9 @@ for epoch in range(cfg.epochs):
 
     val_loss /= len(val_loader)
     val_acc = accuracy_score(val_labels, val_preds)
-    val_f1  = f1_score(val_labels, val_preds)
-    val_recall = recall_score(val_labels, val_preds)
+    val_f1 = f1_score(val_labels, val_preds)
+    val_recall = recall_score(val_labels, val_preds, average="macro")
+    val_fall_recall = recall_score(val_labels, val_preds, pos_label=1)
 
     scheduler.step(val_f1)
 
@@ -150,10 +157,13 @@ for epoch in range(cfg.epochs):
         'train/loss': train_loss,
         'train/acc': train_acc,
         'train/f1': train_f1,
+        'train/recall': train_recall,
+        'train/fall_recall': train_fall_recall,
         'val/loss': val_loss,
         'val/acc': val_acc,
         'val/f1': val_f1,
         'val/recall': val_recall,
+        'val/fall_recall': val_fall_recall,
         'lr': optimizer.param_groups[0]['lr']
     })
 
@@ -162,8 +172,10 @@ for epoch in range(cfg.epochs):
         f"Val Loss {val_loss:.4f} | "
         f"Val Acc {val_acc:.3f} | "
         f"Val F1 {val_f1:.3f} | "
-        f"Val Recall {val_recall:.3f}"
+        f"Val Recall {val_recall:.3f} | "
+        f"Val Fall Recall {val_fall_recall:.3f}"
     )
+
     if val_f1 > best_f1:
         best_f1 = val_f1
         patience_ctr = 0
@@ -174,10 +186,12 @@ for epoch in range(cfg.epochs):
     if patience_ctr >= cfg.early_stop:
         print("Early stopping")
         break
+
 model.load_state_dict(torch.load("best_vit_fall.pth"))
 model.eval()
 
 test_preds, test_labels = [], []
+
 with torch.no_grad():
     for x, y in test_loader:
         logits = model(x.to(DEVICE))
@@ -185,8 +199,9 @@ with torch.no_grad():
         test_labels.extend(y)
 
 test_acc = accuracy_score(test_labels, test_preds)
-test_f1  = f1_score(test_labels, test_preds)
-test_recall = recall_score(test_labels, test_preds)
+test_f1 = f1_score(test_labels, test_preds)
+test_recall = recall_score(test_labels, test_preds, average="macro")
+test_fall_recall = recall_score(test_labels, test_preds, pos_label=1)
 
 cm = confusion_matrix(test_labels, test_preds)
 fig = plot_confusion(cm, "Test Confusion Matrix")
@@ -194,12 +209,14 @@ fig = plot_confusion(cm, "Test Confusion Matrix")
 wandb.log({
     'test/acc': test_acc,
     'test/f1': test_f1,
-    'test/recall': test_recall, 
+    'test/recall': test_recall,
+    'test/fall_recall': test_fall_recall,
     'test/confusion': wandb.Image(fig)
 })
 
 wandb.finish()
 
-print(f"\nTEST Acc    : {test_acc:.4f}")
-print(f"TEST F1     : {test_f1:.4f}")
-print(f"TEST Recall : {test_recall:.4f}")
+print(f"\nTEST Acc         : {test_acc:.4f}")
+print(f"TEST F1          : {test_f1:.4f}")
+print(f"TEST Recall      : {test_recall:.4f}")
+print(f"TEST Fall Recall : {test_fall_recall:.4f}")

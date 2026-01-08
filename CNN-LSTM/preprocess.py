@@ -4,7 +4,7 @@ import torch
 from torch.utils.data import Dataset
 
 class FallDataset(Dataset):
-    def __init__(self, fall_dir, nonfall_dir, seq_len=32, augment=False):
+    def __init__(self, fall_dir, nonfall_dir, seq_len=32):
         self.paths = []
         self.labels = []
         self.seq_len = seq_len
@@ -23,23 +23,31 @@ class FallDataset(Dataset):
         return len(self.paths)
 
     def __getitem__(self, idx):
-        data = np.load(self.paths[idx])  
+        data = np.load(self.paths[idx]).astype(np.float32)
         label = self.labels[idx]
 
         T, J, C = data.shape
-        center = data.mean(axis=1, keepdims=True)
-        data = data - center
-        scale = np.linalg.norm(data, axis=2).max(axis=1, keepdims=True)
-        scale[scale < 1e-6] = 1.0
-        data = data / scale[..., None]
 
-        # ===== Pad / Cut =====
+        xy = data[:, :, :2]
+        conf = data[:, :, 2:]
+
+        center = xy.mean(axis=1, keepdims=True)
+        xy = xy - center
+
+        scale = np.linalg.norm(xy, axis=2).max(axis=1, keepdims=True)
+        scale[scale < 1e-6] = 1.0
+        xy = xy / scale[..., None]
+
+        conf = np.clip(conf, 0.0, 1.0)
+
+        data = np.concatenate([xy, conf], axis=2)
+
         if T > self.seq_len:
             data = data[:self.seq_len]
         elif T < self.seq_len:
-            pad = np.zeros((self.seq_len - T, J, C))
+            pad = np.zeros((self.seq_len - T, J, C), dtype=np.float32)
             data = np.concatenate([data, pad], axis=0)
 
-        x = data.reshape(self.seq_len, -1) 
+        x = data.reshape(self.seq_len, -1)
 
-        return torch.tensor(x, dtype=torch.float32), torch.tensor(label)
+        return torch.from_numpy(x), torch.tensor(label, dtype=torch.long)
