@@ -92,41 +92,41 @@ const CameraCanvas: React.FC<CameraCanvasProps> = ({
       ctx.font = "12px sans-serif";
       ctx.fillText(displayText, x1, Math.max(10, y1 - 6));
 
-      if (d.keypoints?.length) {
-        const pts = d.keypoints.map(([x, y]) => {
-          if (
-            x == null || y == null ||
-            x <= 0 || y <= 0 ||
-            x > 1 || y > 1 ||
-            Number.isNaN(x) || Number.isNaN(y)
-          ) {
-            return null;
-          }
-          return [x * canvas.width, y * canvas.height] as [number, number];
-        });
+      // if (d.keypoints?.length) {
+      //   const pts = d.keypoints.map(([x, y]) => {
+      //     if (
+      //       x == null || y == null ||
+      //       x <= 0 || y <= 0 ||
+      //       x > 1 || y > 1 ||
+      //       Number.isNaN(x) || Number.isNaN(y)
+      //     ) {
+      //       return null;
+      //     }
+      //     return [x * canvas.width, y * canvas.height] as [number, number];
+      //   });
 
-        ctx.strokeStyle = "#ffdd00";
-        ctx.lineWidth = 2;
+      //   ctx.strokeStyle = "#ffdd00";
+      //   ctx.lineWidth = 2;
 
-        SKELETON_EDGES.forEach(([a, b]) => {
-          const pa = pts[a];
-          const pb = pts[b];
-          if (!pa || !pb) return;
+      //   SKELETON_EDGES.forEach(([a, b]) => {
+      //     const pa = pts[a];
+      //     const pb = pts[b];
+      //     if (!pa || !pb) return;
 
-          ctx.beginPath();
-          ctx.moveTo(pa[0], pa[1]);
-          ctx.lineTo(pb[0], pb[1]);
-          ctx.stroke();
-        });
+      //     ctx.beginPath();
+      //     ctx.moveTo(pa[0], pa[1]);
+      //     ctx.lineTo(pb[0], pb[1]);
+      //     ctx.stroke();
+      //   });
 
-        pts.forEach((p) => {
-          if (!p) return;
-          ctx.fillStyle = "#ffdd00";
-          ctx.beginPath();
-          ctx.arc(p[0], p[1], 3, 0, Math.PI * 2);
-          ctx.fill();
-        });
-      }
+      //   pts.forEach((p) => {
+      //     if (!p) return;
+      //     ctx.fillStyle = "#ffdd00";
+      //     ctx.beginPath();
+      //     ctx.arc(p[0], p[1], 3, 0, Math.PI * 2);
+      //     ctx.fill();
+      //   });
+      // }
     }); 
 
     ctx.fillStyle = "#ff4444";

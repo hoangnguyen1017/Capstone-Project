@@ -22,7 +22,7 @@ interface ICamera {
   is_active: boolean;
   video_stream_url?: string;
   responsible_id?: string; 
-
+}
 interface ISupervisor {
   _id: string;
   name: string;

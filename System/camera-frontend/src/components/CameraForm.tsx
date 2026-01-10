@@ -19,6 +19,7 @@ const CameraForm: React.FC<CameraFormProps> = ({ onAdd }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [availableCams, setAvailableCams] = useState<DetectedCamera[]>([]);
   const [selectedCam, setSelectedCam] = useState<DetectedCamera | null>(null);
+
   useEffect(() => {
     const detectCams = async () => {
       const cams: DetectedCamera[] = [];
@@ -49,6 +50,7 @@ const CameraForm: React.FC<CameraFormProps> = ({ onAdd }) => {
             ws_url,
           });
         } catch {
+          // Silent catch for failed connections
         }
       }
 
@@ -63,7 +65,7 @@ const CameraForm: React.FC<CameraFormProps> = ({ onAdd }) => {
     e.preventDefault();
 
     if (!cameraName || !selectedCam) {
-      alert("Vui lòng chọn camera và nhập tên camera.");
+      alert("Please select a camera and enter a camera name.");
       return;
     }
 
@@ -84,10 +86,10 @@ const CameraForm: React.FC<CameraFormProps> = ({ onAdd }) => {
       setCameraName("");
       setLocation("");
       setIsActive(true);
-      alert("Thêm camera thành công!");
+      alert("Camera added successfully!");
     } catch (err) {
-      console.error("Lỗi khi thêm camera:", err);
-      alert("Thêm camera thất bại. Vui lòng kiểm tra server.");
+      console.error("Error adding camera:", err);
+      alert("Failed to add camera. Please check the server connection.");
     } finally {
       setIsLoading(false);
     }
@@ -96,14 +98,14 @@ const CameraForm: React.FC<CameraFormProps> = ({ onAdd }) => {
   return (
     <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
       <h2 className="text-xl font-semibold text-center text-indigo-700 mb-6">
-        📷 Camera information
+        📷 Camera Configuration
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
-          type="text"
-            placeholder="Camera name"
+            type="text"
+            placeholder="Camera Name"
             value={cameraName}
             onChange={(e) => setCameraName(e.target.value)}
             required
@@ -119,7 +121,7 @@ const CameraForm: React.FC<CameraFormProps> = ({ onAdd }) => {
             required
             className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-indigo-400 outline-none transition"
           >
-            {availableCams.length === 0 && <option>Không tìm thấy camera</option>}
+            {availableCams.length === 0 && <option>No cameras detected</option>}
             {availableCams.map(cam => (
               <option key={cam.index} value={cam.index}>
                 {cam.name} ({cam.ws_url})
@@ -129,7 +131,7 @@ const CameraForm: React.FC<CameraFormProps> = ({ onAdd }) => {
 
           <input
             type="text"
-            placeholder="Installation location"
+            placeholder="Installation Location (e.g., Room 101)"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-indigo-400 outline-none transition"
@@ -139,9 +141,9 @@ const CameraForm: React.FC<CameraFormProps> = ({ onAdd }) => {
         <button
           type="submit"
           disabled={isLoading || !selectedCam}
-          className="w-full from-indigo-600 to-blue-500 text-white py-2.5 rounded-lg font-semibold hover:opacity-90 transition-all duration-200 disabled:opacity-50 shadow-md"
+          className="w-full bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-2.5 rounded-lg font-semibold hover:opacity-90 transition-all duration-200 disabled:opacity-50 shadow-md"
         >
-          {isLoading ? "Đang thêm..." : "➕"}
+          {isLoading ? "Adding Camera..." : "➕ Add Camera"}
         </button>
       </form>
     </div>
@@ -149,4 +151,3 @@ const CameraForm: React.FC<CameraFormProps> = ({ onAdd }) => {
 };
 
 export default CameraForm;
-

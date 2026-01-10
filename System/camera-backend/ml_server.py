@@ -15,7 +15,7 @@ import signal
 
 MODEL_SERVER_URL = "http://localhost:6000/predict"
 CAM_FPS = 60
-YOLO_MODEL_PATH = r"C:\Users\ADMIN\Downloads\Do_an\web_final_bv\web_final\best912.pt"
+YOLO_MODEL_PATH = r"C:\Users\ADMIN\Downloads\Do_an\System_goc\System\best912.pt"
 WS_BIND = "127.0.0.1"
 
 FALL_CONFIRM_HOLD = 5.0
@@ -124,7 +124,7 @@ def update_fall_state(track_id, st_label, st_conf, now_ts):
     s["alert_logged"] = False
     return "normal"
 class TrackerManager:
-    def __init__(self, min_frames=15, max_lost=20):
+    def __init__(self, min_frames=8, max_lost=12):
         self.min_frames = min_frames
         self.max_lost = max_lost
         self.temp_tracks = {}
@@ -458,7 +458,7 @@ class CameraPipeline:
         return inside_x & inside_y
 
 
-    def smooth_bbox(self, track_id, bbox, alpha=0.25):
+    def smooth_bbox(self, track_id, bbox, alpha=0.3):
         if track_id not in self.prev_boxes:
             self.prev_boxes[track_id] = bbox
             return bbox
